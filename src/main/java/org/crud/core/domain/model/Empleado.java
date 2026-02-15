@@ -2,26 +2,16 @@ package org.crud.domain.model;
 
 import java.util.Objects;
 
-/**
- * Entidad de dominio que representa un Empleado.
- *
- * IMPORTANTE: Esta clase es AGNÓSTICA de infraestructura
- * - No tiene anotaciones JPA (@Entity, @Id, etc.)
- * - No tiene anotaciones de Jackson (@JsonProperty, etc.)
- * - No tiene anotaciones de validación (@NotNull, etc.)
- *
- * ¿Por qué?
- * - El dominio es el CORAZÓN de la aplicación y debe ser independiente
- * - Puedes cambiar de BD, framework REST, etc. sin tocar el dominio
- * - Facilita testing: no necesitas levantar BD o servidor
- * - Sigue el principio de Inversión de Dependencias (SOLID)
- */
 public class Empleado {
 
     private Long id;
     private String nombre;
     private String cargo;
     private Double salario;
+    private String username;
+    private String password;
+    private String rol;
+    private Long creadorId;
 
     // Constructor vacío para frameworks que lo requieran
     public Empleado() {
@@ -69,34 +59,54 @@ public class Empleado {
         this.salario = salario;
     }
 
-    /**
-     * Método de dominio para validar si el empleado tiene datos completos.
-     * Este tipo de lógica de negocio DEBE estar en el dominio.
-     *
-     * @return true si todos los campos obligatorios están presentes
-     */
-    public boolean isValid() {
-        return nombre != null && !nombre.trim().isEmpty()
-            && cargo != null && !cargo.trim().isEmpty()
-            && salario != null && salario > 0;
+    public String getUsername() {
+        return username;
     }
 
-    /**
-     * Método de dominio para calcular salario anual.
-     * Ejemplo de lógica de negocio que pertenece al dominio.
-     *
-     * @return salario multiplicado por 12 meses
-     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public Long getCreadorId() {
+        return creadorId;
+    }
+
+    public void setCreadorId(Long creadorId) {
+        this.creadorId = creadorId;
+    }
+
+    public boolean isValid() {
+        return nombre != null && !nombre.trim().isEmpty()
+                && cargo != null && !cargo.trim().isEmpty()
+                && salario != null && salario > 0;
+    }
+
     public Double calcularSalarioAnual() {
         return salario != null ? salario * 12 : 0.0;
     }
 
-    // Métodos equals y hashCode para comparación correcta
-    // Útiles en colecciones y tests
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Empleado empleado = (Empleado) o;
         return Objects.equals(id, empleado.id);
     }

@@ -8,7 +8,14 @@ import java.util.Optional;
 public interface EmpleadoRepository {
 
     Empleado save(Empleado empleado);
+
     void delete(Empleado empleado);
+
     Optional<Empleado> findById(Long id);
+
     List<Empleado> findAll();
+
+    Optional<Empleado> findByUsername(String username);
+
+    List<Empleado> findByCreadorId(Long creadorId);
 }
