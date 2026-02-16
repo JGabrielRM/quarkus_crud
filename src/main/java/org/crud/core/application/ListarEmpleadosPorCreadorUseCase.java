@@ -7,15 +7,13 @@ import org.crud.core.domain.port.EmpleadoRepository;
 
 import java.util.List;
 
-
 @ApplicationScoped
-public class ListarTodosEmpleadosUseCase {
+public class ListarEmpleadosPorCreadorUseCase {
 
     @Inject
     EmpleadoRepository empleadoRepository;
 
-
-    public List<Empleado> ejecutar() {
-        return empleadoRepository.findAll();
+    public List<Empleado> ejecutar(Long creadorId) {
+        return empleadoRepository.findByCreadorId(creadorId);
     }
 }

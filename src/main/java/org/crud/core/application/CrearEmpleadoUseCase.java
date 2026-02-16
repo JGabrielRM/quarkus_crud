@@ -1,11 +1,11 @@
-package org.crud.application.usecases;
+package org.crud.core.application;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 
-import org.crud.domain.model.Empleado;
-import org.crud.domain.port.EmpleadoRepository;
+import org.crud.core.domain.model.Empleado;
+import org.crud.core.domain.port.EmpleadoRepository;
 
 @ApplicationScoped
 public class CrearEmpleadoUseCase {

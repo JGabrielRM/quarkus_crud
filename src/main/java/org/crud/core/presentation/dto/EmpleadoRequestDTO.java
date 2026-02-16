@@ -1,4 +1,4 @@
-package org.crud.adapters.in.dto;
+package org.crud.core.presentation.dto;
 
 public class EmpleadoRequestDTO {
 

@@ -1,14 +1,5 @@
-package org.crud.adapters.in.dto;
+package org.crud.core.presentation.dto;
 
-/**
- * DTO para enviar datos de empleado al cliente.
- * 
- * ¿Por qué separar Request y Response DTOs?
- * - El Request NO incluye el ID (lo genera la BD)
- * - El Response SÍ incluye el ID (para que el cliente lo conozca)
- * - Puedes agregar campos calculados en el Response (ej: salarioAnual)
- * - Mayor flexibilidad para evolucionar la API
- */
 public class EmpleadoResponseDTO {
 
     // El ID solo existe en respuestas, no en requests

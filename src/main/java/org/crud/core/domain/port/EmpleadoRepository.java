@@ -1,6 +1,6 @@
-package org.crud.domain.port;
+package org.crud.core.domain.port;
 
-import org.crud.domain.model.Empleado;
+import org.crud.core.domain.model.Empleado;
 
 import java.util.List;
 import java.util.Optional;

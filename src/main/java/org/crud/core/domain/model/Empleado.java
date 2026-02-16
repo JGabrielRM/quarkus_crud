@@ -1,4 +1,4 @@
-package org.crud.domain.model;
+package org.crud.core.domain.model;
 
 import java.util.Objects;
 
