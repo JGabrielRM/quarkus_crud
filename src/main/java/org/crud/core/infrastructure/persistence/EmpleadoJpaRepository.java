@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @ApplicationScoped
-public class IEmpleadoJpaRepository implements IEmpleadoRepository {
+public class EmpleadoJpaRepository implements IEmpleadoRepository {
 
     @Inject
     EntityManager entityManager;

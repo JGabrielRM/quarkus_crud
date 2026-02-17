@@ -36,10 +36,6 @@ public class EmpleadoService {
     @Inject
     EmpleadoKafkaProducer kafkaProducer;
 
-    /**
-     * Lista empleados según el rol del usuario autenticado.
-     * ADMIN ve todos; USER ve solo los que creó.
-     */
     public List<Empleado> listarEmpleados(Set<String> roles, Long creadorId) {
         if (roles.contains(Constants.PROJECT_ROL_ADMIN)) {
             return listarTodosEmpleadosUseCase.ejecutar();

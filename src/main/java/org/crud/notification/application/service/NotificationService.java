@@ -15,10 +15,6 @@ public class NotificationService {
     @Inject
     INotificationLogRepository repository;
 
-    /**
-     * Lista logs de notificación según el rol del usuario.
-     * ADMIN ve todos; USER ve solo los suyos.
-     */
     public List<NotificationLog> listarLogs(Set<String> roles, Long creadorId) {
         if (roles.contains("ADMIN")) {
             return repository.findAll();
