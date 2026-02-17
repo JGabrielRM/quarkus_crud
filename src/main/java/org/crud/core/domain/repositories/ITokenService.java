@@ -1,7 +1,7 @@
-package org.crud.core.domain.port;
+package org.crud.core.domain.repositories;
 
 import org.crud.core.domain.model.Empleado;
 
-public interface TokenService {
+public interface ITokenService {
     String generarToken(Empleado empleado);
 }

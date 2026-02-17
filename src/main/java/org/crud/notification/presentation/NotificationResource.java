@@ -6,8 +6,9 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
+import org.crud.notification.application.service.NotificationService;
 import org.crud.notification.domain.model.NotificationLog;
-import org.crud.notification.domain.port.NotificationLogRepository;
+import org.eclipse.microprofile.jwt.JsonWebToken;
 
 import java.util.List;
 
@@ -16,21 +17,15 @@ import java.util.List;
 public class NotificationResource {
 
     @Inject
-    NotificationLogRepository repository;
+    NotificationService notificationService;
 
     @Inject
-    org.eclipse.microprofile.jwt.JsonWebToken jwt;
+    JsonWebToken jwt;
 
     @GET
     public List<NotificationLog> listarLogs() {
-        // ADMIN ve todo
-        if (jwt.getGroups().contains("ADMIN")) {
-            return repository.findAll();
-        }
-
-        // USER ve solo sus logs
-        Long myId = getUsuarioIdFromToken();
-        return repository.findByCreadorId(myId);
+        return notificationService.listarLogs(
+                jwt.getGroups(), getUsuarioIdFromToken());
     }
 
     private Long getUsuarioIdFromToken() {

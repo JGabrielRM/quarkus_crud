@@ -1,14 +1,14 @@
 package org.crud.core.infrastructure.security;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import org.crud.core.domain.port.PasswordService;
+import org.crud.core.domain.repositories.IPasswordService;
 import org.wildfly.security.password.PasswordFactory;
 import org.wildfly.security.password.interfaces.BCryptPassword;
 import org.wildfly.security.password.util.ModularCrypt;
 import org.wildfly.security.password.spec.EncryptablePasswordSpec;
 
 @ApplicationScoped
-public class BcryptPasswordService implements PasswordService {
+public class BcryptIPasswordService implements IPasswordService {
 
     @Override
     public String hashear(String password) {

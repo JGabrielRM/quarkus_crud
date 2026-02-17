@@ -4,21 +4,21 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 import org.crud.core.domain.model.Empleado;
-import org.crud.core.domain.port.EmpleadoRepository;
-import org.crud.core.domain.port.PasswordService;
-import org.crud.core.domain.port.TokenService;
+import org.crud.core.domain.repositories.IEmpleadoRepository;
+import org.crud.core.domain.repositories.IPasswordService;
+import org.crud.core.domain.repositories.ITokenService;
 
 @ApplicationScoped
 public class LoginEmpleadoUseCase {
 
     @Inject
-    EmpleadoRepository empleadoRepository;
+    IEmpleadoRepository empleadoRepository;
 
     @Inject
-    PasswordService passwordService;
+    IPasswordService IPasswordService;
 
     @Inject
-    TokenService tokenService;
+    ITokenService ITokenService;
 
     public String ejecutar(String username, String password) {
         if (username == null || password == null) {
@@ -28,10 +28,10 @@ public class LoginEmpleadoUseCase {
         Empleado empleado = empleadoRepository.findByUsername(username)
                 .orElseThrow(() -> new IllegalArgumentException("Credenciales inválidas"));
 
-        if (!passwordService.verificar(password, empleado.getPassword())) {
+        if (!IPasswordService.verificar(password, empleado.getPassword())) {
             throw new IllegalArgumentException("Credenciales inválidas");
         }
 
-        return tokenService.generarToken(empleado);
+        return ITokenService.generarToken(empleado);
     }
 }

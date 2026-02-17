@@ -4,13 +4,13 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 import org.crud.core.domain.model.Empleado;
-import org.crud.core.domain.port.EmpleadoRepository;
+import org.crud.core.domain.repositories.IEmpleadoRepository;
 
 @ApplicationScoped
 public class BuscarEmpleadoPorIdUseCase {
 
     @Inject
-    EmpleadoRepository empleadoRepository;
+    IEmpleadoRepository empleadoRepository;
 
     public Empleado ejecutar(Long id) {
         if (id == null) {

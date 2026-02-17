@@ -5,7 +5,7 @@ import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 
 import org.crud.notification.domain.model.NotificationLog;
-import org.crud.notification.domain.port.NotificationLogRepository;
+import org.crud.notification.domain.repository.INotificationLogRepository;
 import org.crud.shared.EmpleadoEvent;
 import org.jboss.logging.Logger;
 
@@ -15,7 +15,7 @@ public class ProcesarEventoUseCase {
     private static final Logger LOG = Logger.getLogger(ProcesarEventoUseCase.class);
 
     @Inject
-    NotificationLogRepository repository;
+    INotificationLogRepository repository;
 
     @Transactional
     public void ejecutar(EmpleadoEvent evento) {

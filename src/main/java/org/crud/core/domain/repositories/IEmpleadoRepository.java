@@ -1,11 +1,11 @@
-package org.crud.core.domain.port;
+package org.crud.core.domain.repositories;
 
 import org.crud.core.domain.model.Empleado;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface EmpleadoRepository {
+public interface IEmpleadoRepository {
 
     Empleado save(Empleado empleado);
 

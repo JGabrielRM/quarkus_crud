@@ -4,7 +4,7 @@ import io.smallrye.jwt.build.Jwt;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.crud.core.domain.model.Empleado;
-import org.crud.core.domain.port.TokenService;
+import org.crud.core.domain.repositories.ITokenService;
 
 import java.io.InputStream;
 import java.security.KeyStore;
@@ -14,7 +14,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @ApplicationScoped
-public class JwtTokenService implements TokenService {
+public class JwtITokenService implements ITokenService {
 
     private PrivateKey privateKey;
 

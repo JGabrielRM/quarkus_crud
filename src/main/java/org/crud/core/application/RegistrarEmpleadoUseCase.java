@@ -5,17 +5,17 @@ import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 
 import org.crud.core.domain.model.Empleado;
-import org.crud.core.domain.port.EmpleadoRepository;
-import org.crud.core.domain.port.PasswordService;
+import org.crud.core.domain.repositories.IEmpleadoRepository;
+import org.crud.core.domain.repositories.IPasswordService;
 
 @ApplicationScoped
 public class RegistrarEmpleadoUseCase {
 
     @Inject
-    EmpleadoRepository empleadoRepository;
+    IEmpleadoRepository empleadoRepository;
 
     @Inject
-    PasswordService passwordService;
+    IPasswordService IPasswordService;
 
     @Transactional
     public Empleado ejecutar(String username, String password, String nombre, String cargo, Double salario,
@@ -34,7 +34,7 @@ public class RegistrarEmpleadoUseCase {
 
         Empleado empleado = new Empleado();
         empleado.setUsername(username);
-        empleado.setPassword(passwordService.hashear(password));
+        empleado.setPassword(IPasswordService.hashear(password));
         empleado.setNombre(nombre);
         empleado.setCargo(cargo);
         empleado.setSalario(salario);

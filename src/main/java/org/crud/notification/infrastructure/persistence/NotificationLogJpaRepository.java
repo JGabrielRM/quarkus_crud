@@ -5,14 +5,14 @@ import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 
 import org.crud.notification.domain.model.NotificationLog;
-import org.crud.notification.domain.port.NotificationLogRepository;
+import org.crud.notification.domain.repository.INotificationLogRepository;
 import org.crud.notification.infrastructure.persistence.mapper.NotificationLogEntityMapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @ApplicationScoped
-public class NotificationLogJpaRepository implements NotificationLogRepository {
+public class NotificationLogJpaRepository implements INotificationLogRepository {
 
     @Inject
     EntityManager entityManager;

@@ -5,13 +5,13 @@ import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 
 import org.crud.core.domain.model.Empleado;
-import org.crud.core.domain.port.EmpleadoRepository;
+import org.crud.core.domain.repositories.IEmpleadoRepository;
 
 @ApplicationScoped
 public class CrearEmpleadoUseCase {
 
     @Inject
-    EmpleadoRepository empleadoRepository;
+    IEmpleadoRepository empleadoRepository;
 
     @Transactional
     public Empleado ejecutar(Empleado empleado) {

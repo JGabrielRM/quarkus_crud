@@ -5,14 +5,14 @@ import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import org.crud.core.infrastructure.persistence.mapper.EmpleadoEntityMapper;
 import org.crud.core.domain.model.Empleado;
-import org.crud.core.domain.port.EmpleadoRepository;
+import org.crud.core.domain.repositories.IEmpleadoRepository;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @ApplicationScoped
-public class EmpleadoJpaRepository implements EmpleadoRepository {
+public class IEmpleadoJpaRepository implements IEmpleadoRepository {
 
     @Inject
     EntityManager entityManager;

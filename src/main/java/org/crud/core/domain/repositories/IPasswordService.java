@@ -1,6 +1,6 @@
-package org.crud.core.domain.port;
+package org.crud.core.domain.repositories;
 
-public interface PasswordService {
+public interface IPasswordService {
     String hashear(String password);
 
     boolean verificar(String passwordPlano, String passwordHasheado);

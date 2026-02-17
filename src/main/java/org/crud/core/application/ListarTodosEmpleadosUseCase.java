@@ -3,7 +3,7 @@ package org.crud.core.application;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.crud.core.domain.model.Empleado;
-import org.crud.core.domain.port.EmpleadoRepository;
+import org.crud.core.domain.repositories.IEmpleadoRepository;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class ListarTodosEmpleadosUseCase {
 
     @Inject
-    EmpleadoRepository empleadoRepository;
+    IEmpleadoRepository empleadoRepository;
 
 
     public List<Empleado> ejecutar() {
