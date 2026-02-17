@@ -5,6 +5,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.crud.core.application.service.EmpleadoService;
+import org.crud.core.presentation.dto.EmpleadoRequestDTO;
 import org.crud.core.presentation.dto.EmpleadoResponseDTO;
 import org.crud.core.presentation.mapper.EmpleadoDTOMapper;
 import org.crud.core.domain.model.Empleado;
@@ -55,7 +56,7 @@ public class EmpleadoResource {
     }
 
     @POST
-    public Response crear(org.crud.core.presentation.dto.EmpleadoRequestDTO requestDTO) {
+    public Response crear(EmpleadoRequestDTO requestDTO) {
         try {
             Empleado empleado = mapper.toDomain(requestDTO);
             Long creadorId = getUsuarioIdFromToken();
@@ -75,7 +76,7 @@ public class EmpleadoResource {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response actualizar(@PathParam("id") Long id,
-            org.crud.core.presentation.dto.EmpleadoRequestDTO requestDTO) {
+            EmpleadoRequestDTO requestDTO) {
         try {
             Empleado empleado = mapper.toDomain(requestDTO);
             Long creadorId = getUsuarioIdFromToken();

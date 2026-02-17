@@ -27,6 +27,6 @@ public class ProcesarEventoUseCase {
         NotificationLog log = new NotificationLog(evento.getAccion(), payload, evento.getCreadorId());
         repository.save(log);
 
-        LOG.infof("✅ Evento guardado en NotificationLog: %s", evento.getAccion());
+        LOG.infof("Evento guardado en NotificationLog: %s", evento.getAccion());
     }
 }

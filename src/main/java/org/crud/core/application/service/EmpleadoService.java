@@ -43,16 +43,12 @@ public class EmpleadoService {
         return listarEmpleadosPorCreadorUseCase.ejecutar(creadorId);
     }
 
-    /**
-     * Busca un empleado por su ID.
-     */
+
     public Empleado buscarPorId(Long id) {
         return buscarEmpleadoPorIdUseCase.ejecutar(id);
     }
 
-    /**
-     * Crea un empleado, asigna el creadorId y notifica a Kafka.
-     */
+
     public Empleado crear(Empleado empleado, Long creadorId) {
         empleado.setCreadorId(creadorId);
         Empleado guardado = crearEmpleadoUseCase.ejecutar(empleado);
@@ -69,9 +65,7 @@ public class EmpleadoService {
         return guardado;
     }
 
-    /**
-     * Actualiza un empleado y notifica a Kafka.
-     */
+
     public Empleado actualizar(Long id, Empleado empleado, Long creadorId) {
         Empleado actualizado = actualizarEmpleadoUseCase.ejecutar(id, empleado);
 
@@ -87,9 +81,7 @@ public class EmpleadoService {
         return actualizado;
     }
 
-    /**
-     * Elimina un empleado y notifica a Kafka.
-     */
+
     public void eliminar(Long id, Long creadorId) {
         eliminarEmpleadoUseCase.ejecutar(id);
 
