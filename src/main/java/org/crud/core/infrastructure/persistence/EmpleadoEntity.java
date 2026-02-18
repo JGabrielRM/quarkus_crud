@@ -8,6 +8,7 @@ public class EmpleadoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(initialValue = 1)
     private Long id;
 
     @Column(nullable = false)
